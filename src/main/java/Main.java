@@ -33,26 +33,40 @@ public class Main {
 //        assert s1.equals(s2) : "Objects not equal";
 
 //        Singleton s1 = new Singleton();
-        Singleton s1 = new Main.Singleton();
+//        Singleton s1 = new Main.Singleton();
+//        s1.a = 1;
+//        s1.b = 2;
+
+//        Singleton s2 = new Singleton();
+//        Singleton s2 = new Main.Singleton();
+//        s2.a = 3;
+//        s2.b = 4;
+//
+//        System.out.println(s1.a); // 3
+//        System.out.println(s1.b); // 4
+//        System.out.println(s2.a); // 3
+//        System.out.println(s2.b); // 4
+
+        Singleton s1 = Singleton.getInstance();
         s1.a = 1;
         s1.b = 2;
 
-//        Singleton s2 = new Singleton();
-        Singleton s2 = new Main.Singleton();
+        Singleton s2 = Singleton.getInstance();
         s2.a = 3;
         s2.b = 4;
 
-        System.out.println(s1.a); // 3
-        System.out.println(s1.b); // 4
-        System.out.println(s2.a); // 3
-        System.out.println(s2.b); // 4
+        System.out.println(s1.equals(s2));
+        System.out.println(s1.toString());
+        System.out.println(s2.toString());
+
+
 
 
     }
 
-    public static class Singleton {
-        public static int a = 0;
-        public static int b = 0;
-
-    }
+//    public static class Singleton {
+//        public static int a = 0;
+//        public static int b = 0;
+//
+//    }
 }
