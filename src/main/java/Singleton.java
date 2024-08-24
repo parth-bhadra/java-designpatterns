@@ -7,14 +7,13 @@ public class Singleton {
     }
 
     public static Singleton getInstance(String val) {
-        // double check locking
-        if (instance == null) {
-            // lock it only for the first time
-            synchronized (Singleton.class) {
-                // check again as multiple threads can reach above step
-                if (instance == null) instance = new Singleton(val);
-            }
+        if (instance != null) return instance;
+
+        synchronized (Singleton.class) {
+            // check again as multiple threads can reach above step
+            if (instance == null) instance = new Singleton(val);
         }
+
         return instance;
     }
 
