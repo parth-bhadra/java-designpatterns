@@ -27,10 +27,32 @@ public class Main {
 //                .windows(4)
 //                .build();
 
-        NotSingleton s1 = new NotSingleton(1, 2);
-        NotSingleton s2 = new NotSingleton(1, 2);
+//        NotSingleton s1 = new NotSingleton(1, 2);
+//        NotSingleton s2 = new NotSingleton(1, 2);
+//
+//        assert s1.equals(s2) : "Objects not equal";
 
-        assert s1.equals(s2) : "Objects not equal";
+//        Singleton s1 = new Singleton();
+        Singleton s1 = new Main.Singleton();
+        s1.a = 1;
+        s1.b = 2;
+
+//        Singleton s2 = new Singleton();
+        Singleton s2 = new Main.Singleton();
+        s2.a = 3;
+        s2.b = 4;
+
+        System.out.println(s1.a); // 3
+        System.out.println(s1.b); // 4
+        System.out.println(s2.a); // 3
+        System.out.println(s2.b); // 4
+
+
+    }
+
+    public static class Singleton {
+        public static int a = 0;
+        public static int b = 0;
 
     }
 }
