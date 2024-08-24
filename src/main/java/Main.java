@@ -22,10 +22,15 @@ public class Main {
         //when objects are simple
 
 
-        House house = new House.Builder()
-                .hasRoof(true)
-                .windows(4)
-                .build();
+//        House house = new House.Builder()
+//                .hasRoof(true)
+//                .windows(4)
+//                .build();
+
+        NotSingleton s1 = new NotSingleton(1, 2);
+        NotSingleton s2 = new NotSingleton(1, 2);
+
+        assert s1.equals(s2) : "Objects not equal";
 
     }
 }
