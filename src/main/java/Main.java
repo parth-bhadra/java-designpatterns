@@ -47,22 +47,69 @@ public class Main {
 //        System.out.println(s2.a); // 3
 //        System.out.println(s2.b); // 4
 
-        Singleton s1 = Singleton.getInstance();
-        s1.a = 1;
-        s1.b = 2;
+//        Singleton s1 = Singleton.getInstance();
+//        s1.a = 1;
+//        s1.b = 2;
+//
+//        Singleton s2 = Singleton.getInstance();
+//        s2.a = 3;
+//        s2.b = 4;
+//
+//        System.out.println(s1.equals(s2));
+//        System.out.println(s1.toString());
+//        System.out.println(s2.toString());
 
-        Singleton s2 = Singleton.getInstance();
-        s2.a = 3;
-        s2.b = 4;
+        System.out.println("If you see the same value, then singleton was reused (yay!)" + "\n" +
+                "If you see different values, then 2 singletons were created (booo!!)" + "\n\n" +
+                "RESULT:" + "\n");
 
-        System.out.println(s1.equals(s2));
-        System.out.println(s1.toString());
-        System.out.println(s2.toString());
+        Thread threadFoo = new Thread(new ThreadFoo());
+        Thread threadBar = new Thread(new ThreadBar());
+        Thread threadAndi = new Thread(new ThreadAndi());
+        Thread threadMandi = new Thread(new ThreadMandi());
+
+        threadFoo.start();
+        threadBar.start();
+        threadAndi.start();
+        threadMandi.start();
 
 
 
 
     }
+
+    public static class ThreadFoo implements Runnable {
+        @Override
+        public void run() {
+            Singleton singleton = Singleton.getInstance("Foo");
+            System.out.println(singleton.toString());
+        }
+    }
+
+    public static class ThreadBar implements Runnable {
+        @Override
+        public void run() {
+            Singleton singleton = Singleton.getInstance("Bar");
+            System.out.println(singleton.toString());
+        }
+    }
+
+    public static class ThreadAndi implements Runnable {
+        @Override
+        public void run() {
+            Singleton singleton = Singleton.getInstance("Andi");
+            System.out.println(singleton.toString());
+        }
+    }
+
+    public static class ThreadMandi implements Runnable {
+        @Override
+        public void run() {
+            Singleton singleton = Singleton.getInstance("Mandi");
+            System.out.println(singleton.toString());
+        }
+    }
+
 
 //    public static class Singleton {
 //        public static int a = 0;
